@@ -1,0 +1,60 @@
+1) Using matlab draw figure
+// First in matlab addpath '/suntans/mfiles'
+
+
+
+datadir='/suntans/examples/iwaves/data';  
+// this address is absolute address ex. /home/"Your name"/suntans/example/iwaves/data
+
+
+
+[x,y,z]=plotslice(5,datadir,10,0);
+
+
+
+clfÅG
+pcolor(x/1000,y,z);
+
+shading flat;
+
+daspect([1 75 1]);
+
+hc = colorbar('horiz');
+
+pc = get(hc,'position');
+
+set(hc,'position',[pc(1) pc(2)+1.75*pc(4) pc(3) pc(4)]);
+
+
+
+xlabel('x (km)');
+
+ylabel('y (m)');
+
+
+
+2)Install triangle
+
+// Download from: http://www.netlib.org/voronoi/triangle.zip
+
+// Unzip it in the home floder where suntans located.
+
+// 	    cd /home/"your name"/
+
+//	    unzip triangle.zip
+
+************************************************************
+
+	cd triangle/
+	make
+
+	make trilibrary
+
+You will meet triangle.o file
+***********************************************************
+
+	cd /home/"your name"/suntans/main
+
+	vim Makefile.in
+
+edit:	TRIANGLEHOME=/home/"yourname"/triangle
